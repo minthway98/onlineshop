@@ -9,15 +9,13 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
     <div id="app">
@@ -76,5 +74,18 @@
             @yield('content')
         </main>
     </div>
+
 </body>
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+
+<script src="{{asset('js/app.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+<script type="text/javascript">    
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
+</script>
+
 </html>

@@ -1,26 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <form action="post" method="POST">
+@extends('layouts.app')
+
+@section('content')
+<form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+           
         <div class="form-group">
             <label for="">name</label>
             <input type="text" name="name" id="" class="form-control">
         </div>
-        <div class="form-group">
-            <label for="">name</label>
-            <input type="text" name="name" id="" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="">name</label>
-            <input type="text" name="name" id="" class="form-control">
-        </div>
-        
+       
+        <select class="js-example-basic-multiple form-control" name="colors[]" multiple="multiple">
+                <option value="AL">Alabama</option>
+                <option value="AL">black</option>
+                <option value="WY">Wyoming</option>
+              </select>
+        <input type="submit" value="sub">
     </form>
-</body>
-</html>
+
+@endsection

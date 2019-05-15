@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
+use Symfony\Component\Process\Process;
 
 class ProductController extends Controller
 {
@@ -14,6 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         //
+        return view('product.index',compact('products'));
     }
 
     /**
@@ -24,6 +27,8 @@ class ProductController extends Controller
     public function create()
     {
         //
+        $products = Product::all();
+        return view('product.create',compact('products'));
     }
 
     /**
@@ -35,6 +40,17 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        $product = New Product;
+        $product->name = $request->name;
+        $product->image = "test";
+        $product->attributes = json_encode($request->colors);
+        $product->save();
+    //    dd($request->colors);
+        // foreach($request->colors as $color){
+          
+        //     dd($attribute);
+        // }
+    
     }
 
     /**
