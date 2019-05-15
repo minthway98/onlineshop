@@ -16,6 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         //
+        $products = Product::all();
         return view('product.index',compact('products'));
     }
 
@@ -43,8 +44,11 @@ class ProductController extends Controller
         $product = New Product;
         $product->name = $request->name;
         $product->image = "test";
-        $product->attributes = json_encode($request->colors);
+        $column1 = array('column'=>$request->colors);
+        $product->attributes = json_encode($column1, JSON_PRETTY_PRINT);
         $product->save();
+        return view('product.create',compact('products'));
+
     //    dd($request->colors);
         // foreach($request->colors as $color){
           
